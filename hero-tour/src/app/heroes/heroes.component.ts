@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../interfaces/hero'
+import {HEROES} from "../mock-heroes";
 
 @Component({  // decorator function that specifies the Angular metadata for the component
   selector: 'app-heroes',  // the component's CSS element selector
@@ -7,10 +8,7 @@ import {Hero} from '../interfaces/hero'
   styleUrls: ['./heroes.component.scss']  // the location of the component's private CSS styles
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }
+  heroes = HEROES
   constructor() { }
 
   ngOnInit(): void {
