@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from '../interfaces/hero'
 import {HeroService} from "../services/hero/hero.service";
+import {MessageService} from "../services/message/message.service";
 
 @Component({  // decorator function that specifies the Angular metadata for the component
   selector: 'app-heroes',  // the component's CSS element selector
@@ -11,19 +12,21 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero;
 
-  constructor(private heroService: HeroService) { }
-  //todo do I not need to assign to a this? also what if I have like 10 services?
+  constructor(private heroService: HeroService, private messageService:MessageService) {
+    this.messageService.add('Hero component: constructor')
+  }
 
   ngOnInit(): void {
+    this.messageService.add('Hero component: OnInit')
     this.getHeroes()
   }
    getHeroes(): void {
-      this.heroService.getHeroes() //todo why cant I just import and call it here? dependency injection?
-        .subscribe(heroes => this.heroes = heroes) //todo like async??
+      this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes)
     }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero
+    this.messageService.add(`HeroesComponent: ${hero.name} selected`)
   }
-
 }

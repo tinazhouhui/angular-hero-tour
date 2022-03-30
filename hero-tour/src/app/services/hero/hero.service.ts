@@ -9,8 +9,7 @@ import {MessageService} from "../message/message.service";
 })
 export class HeroService {
 
-  constructor(private messageService: MessageService) { } //todo why are we adding it to the hero constructor and not to app?
-
+  constructor(private messageService: MessageService) { }
   getHeroes(): Observable<Hero[]> {
     const heroes = of(HEROES) // of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes
     this.messageService.add('HeroService: fetched heroes')
