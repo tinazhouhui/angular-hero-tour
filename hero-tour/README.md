@@ -17,6 +17,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Careful on WSL, check this [stack overflow QnA](https://stackoverflow.com/questions/54090298/karma-use-windows-chrome-from-wsl/56204265#56204265?newreg=5e6e440d26e040518e5e2f9e17109a83) to fix chrome opening.
+Also, I have Chrome in `Program Files`.
 
 ## Running end-to-end tests
 
